@@ -1,0 +1,28 @@
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(47, 79, 79, 0.817);
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 80px;
+}
+
+.movie-item {
+  display: flex;
+  margin: 20px;
+  align-content: center;
+}
+
+h2 {
+  background-color: rgba(47, 79, 79, 0.817);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 0px;
+}
+
+footer {
+  background-color: darkslategray;
+  padding: 30px;
+}

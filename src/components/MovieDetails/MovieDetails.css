@@ -1,0 +1,30 @@
+.header {
+  grid-area: header;
+}
+.movie-title {
+  grid-area: title;
+}
+.movie-img {
+  grid-area: img;
+}
+.movie-text {
+  grid-area: text;
+}
+
+.grid-container {
+  display: grid;
+  /* margin: 20px; */
+  column-gap: 50px;
+  padding: 50px;
+  background-color: rgb(245, 232, 212);
+  grid-template:
+    'header header header header header header'
+    'title title title title title title'
+    'img img img text text text'
+    'img img img text text text';
+}
+
+.footer {
+  background-color: darkslategray;
+  padding: 100px;
+}

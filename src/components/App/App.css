@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+header {
+  background-color: darkslategray;
+  padding-top: 10px;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkslategray;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: rgb(245, 232, 212);
+}
+
+
