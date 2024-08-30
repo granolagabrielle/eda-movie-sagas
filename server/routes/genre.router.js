@@ -4,7 +4,6 @@ const pool = require('../modules/pool');
 
 // router to join movies and genres and fetch this info from database
 router.get('/:id', (req, res) => {
-  console.log('genre router req.params.id', req.params.id);
   const queryText = `
   SELECT "genres"."name", "movies_genres"."id"
   FROM "genres" JOIN "movies_genres"
@@ -17,6 +16,21 @@ router.get('/:id', (req, res) => {
     })
     .catch((error) => {
       console.log('error GETing movie genres', error);
+      res.sendStatus(500);
+    });
+});
+
+router.get('/', (req, res) => {
+  const queryText = `SELECT * FROM "genres";
+  `;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+      console.log('in all genres router, check result.rows', result.rows);
+    })
+    .catch((error) => {
+      console.log('error getting all genres', error);
       res.sendStatus(500);
     });
 });

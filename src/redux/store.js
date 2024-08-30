@@ -10,6 +10,7 @@ function* rootSaga() {
   yield takeEvery('FETCH_GENRES', fetchGenres);
   yield takeEvery('ADD_MOVIE', addMovie);
   yield takeEvery('DELETE_MOVIE', deleteMovie);
+  yield takeEvery('FETCH_ALL_GENRES', fetchAllGenres);
 }
 
 function* fetchAllMovies() {
@@ -31,6 +32,19 @@ function* fetchMovieDetails(action) {
     console.log(response.data[0]);
   } catch (error) {
     console.log('fetchMovieDetails error:', error);
+  }
+}
+
+function* fetchAllGenres() {
+  try {
+    const genresResponse = yield axios.get('/api/genres');
+    console.log('in fetchAllGenres saga, check genresResponse.data', genresResponse.data);
+    yield put({
+      type: 'SET_GENRES',
+      payload: genresResponse.data,
+    });
+  } catch (error) {
+    console.log('fetchAllGenres error: ', error);
   }
 }
 

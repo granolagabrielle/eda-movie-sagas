@@ -1,11 +1,19 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './AddMovie.css';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function AddMovie() {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_ALL_GENRES' });
+  }, []);
+
+  const genres = useSelector((store) => store.genres);
+  console.log('check genres', genres);
 
   let [newMovie, setNewMovie] = useState({
     title: '',
@@ -47,19 +55,9 @@ export default function AddMovie() {
           <input placeholder='Poster URL' value={newMovie.poster} onChange={handleNewMovie} />
           <select id='Genre' value={newMovie.genre_id} onChange={handleNewMovie}>
             <option defaultValue>Select Genre</option>
-            <option value='1'>Adventure</option>
-            <option value='2'>Animated</option>
-            <option value='3'>Biographical</option>
-            <option value='4'>Comedy</option>
-            <option value='5'>Disaster</option>
-            <option value='6'>Drama</option>
-            <option value='7'>Epic</option>
-            <option value='8'>Fantasy</option>
-            <option value='9'>Musical</option>
-            <option value='10'>Romantic</option>
-            <option value='11'>Science Fiction</option>
-            <option value='12'>Space-Opera</option>
-            <option value='13'>Superhero</option>
+            {genres.map((genre) => {
+              return <option key={genre.id}>{genre.name}</option>;
+            })}
           </select>
           <button type='submit'>Save</button>
           <button onClick={cancel}>Cancel</button>
