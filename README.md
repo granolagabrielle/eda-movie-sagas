@@ -1,14 +1,10 @@
-# PROJECT NAME
-
-Weekend Movies Saga
+# Weekend Movies Saga
 
 ## Description
 
 Duration: 3 days
 
 This is a movie inventory which shows a list of all movies and their titles. Once a movie poster is clicked, the app navigates to a page with more information about the movie, including a description, genres and the option to delete the movie from the database. Another page allows you to add a new movie to the list.
-
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
 
 ## Installation
 
