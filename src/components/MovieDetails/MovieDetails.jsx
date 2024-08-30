@@ -5,27 +5,24 @@ import { useHistory } from 'react-router-dom/';
 import './MovieDetails.css';
 
 export default function MovieDetails() {
-  // grab reducers from store
   const details = useSelector((store) => store.details);
   const genres = useSelector((store) => store.genres);
   const movies = useSelector((store) => store.movies);
-  // console.log('Check genre details:', genres);
   const params = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
-// fetch details and genres on page load
+
   useEffect(() => {
     console.log(`GET ${params.id}`);
     dispatch({ type: 'FETCH_DETAILS', payload: params.id });
     dispatch({ type: 'FETCH_GENRES', payload: params.id });
   }, []);
-// back to home button
+
   const returnHome = () => {
     history.push('/');
   };
-// delete movie button
+
   const deleteMovie = () => {
-    console.log('delete clicked, check movieId', params.id);
     dispatch({ type: 'DELETE_MOVIE', payload: params.id });
     history.push('/');
   };

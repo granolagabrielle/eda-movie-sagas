@@ -7,7 +7,6 @@ export default function AddMovie() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // hold new movie in local state until submit button is clicked
   let [newMovie, setNewMovie] = useState({
     title: '',
     poster: '',
@@ -28,15 +27,12 @@ export default function AddMovie() {
     return newMovie;
   };
 
-  // send new movie to redux and then fetch all movies 
   const addMovie = () => {
-    console.log('submit clicked');
     dispatch({ type: 'ADD_MOVIE', payload: newMovie });
     dispatch({ type: 'FETCH_MOVIES' });
     history.push('/');
   };
 
-  // send user back to home page
   const cancel = () => {
     history.push('/');
   };

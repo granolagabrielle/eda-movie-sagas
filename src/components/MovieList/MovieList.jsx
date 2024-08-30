@@ -10,16 +10,13 @@ import Typography from '@mui/material/Typography';
 function MovieList() {
   const history = useHistory();
   const dispatch = useDispatch();
-  // grab movies from store
   const movies = useSelector((store) => store.movies);
-// fetch movies on page load
+
   useEffect(() => {
     dispatch({ type: 'FETCH_MOVIES' });
   }, []);
-// navigate to movie details page
+
   const viewDetails = (movieId) => {
-    // console.log('movie poster clicked');
-    // console.log('check movieId', movieId);
     history.push(`/details/${movieId}`);
   };
 
