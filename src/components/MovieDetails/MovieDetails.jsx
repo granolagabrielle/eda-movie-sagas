@@ -13,7 +13,6 @@ export default function MovieDetails() {
   const history = useHistory();
 
   useEffect(() => {
-    console.log(`GET ${params.id}`);
     dispatch({ type: 'FETCH_DETAILS', payload: params.id });
     dispatch({ type: 'FETCH_GENRES', payload: params.id });
   }, []);

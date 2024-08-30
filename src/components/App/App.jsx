@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
       <Router>
         <header>
-          <h1>The Movies Saga!</h1>
+          <h1>The Movies Saga</h1>
           <nav>
             <ul>
               <li>
@@ -21,7 +21,6 @@ function App() {
             </ul>
           </nav>
         </header>
-
         <Route path='/' exact>
           <MovieList />
         </Route>

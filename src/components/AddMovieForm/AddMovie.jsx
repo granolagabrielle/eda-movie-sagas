@@ -13,7 +13,6 @@ export default function AddMovie() {
   }, []);
 
   const genres = useSelector((store) => store.genres);
-  console.log('check genres', genres);
 
   let [newMovie, setNewMovie] = useState({
     title: '',
@@ -41,26 +40,54 @@ export default function AddMovie() {
     history.push('/');
   };
 
-  const cancel = () => {
-    history.push('/');
-  };
-
   return (
     <div>
-      <h2>Add New Movie</h2>
+      <h2 className='header'>Add New Movie</h2>
       <div className='movie-form'>
         <form onSubmit={addMovie}>
-          <input placeholder='Title' value={newMovie.title} onChange={handleNewMovie} />
-          <textarea placeholder='Description' value={newMovie.description} onChange={handleNewMovie} />
-          <input placeholder='Poster URL' value={newMovie.poster} onChange={handleNewMovie} />
-          <select id='Genre' value={newMovie.genre_id} onChange={handleNewMovie}>
-            <option defaultValue>Select Genre</option>
-            {genres.map((genre) => {
-              return <option key={genre.id}>{genre.name}</option>;
-            })}
-          </select>
-          <button type='submit'>Save</button>
-          <button onClick={cancel}>Cancel</button>
+          <div className='container'>
+            <div className='row'>
+              <label className='form-label'>Movie Title: </label>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Title'
+                value={newMovie.title}
+                onChange={handleNewMovie}
+              />
+            </div>
+            <div className='row'>
+              <label className='form-label'>Movie Description: </label>
+              <textarea
+                className='form-control'
+                placeholder='Description'
+                value={newMovie.description}
+                onChange={handleNewMovie}
+              />
+            </div>
+            <div className='row'>
+              <label className='form-label'>Movie Poster URL: </label>
+              <input
+                className='form-control'
+                placeholder='Poster URL'
+                value={newMovie.poster}
+                onChange={handleNewMovie}
+              />
+            </div>
+            <div className='row'>
+              <label className='form-label'>Select Genre: </label>
+              <select id='Genre' className='form-select' value={newMovie.genre_id} onChange={handleNewMovie}>
+                <option defaultValue>Select Genre</option>
+                {genres.map((genre) => {
+                  return <option key={genre.id}>{genre.name}</option>;
+                })}
+              </select>
+            </div>
+            <div className='row'>
+              <button type='submit'>Save</button>
+              <button onClick={() => history.push('/')}>Cancel</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>

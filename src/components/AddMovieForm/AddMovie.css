@@ -1,10 +1,6 @@
 .movie-form {
-  background-color: blanchedalmond;
-  padding: 50px;
+  background-color: rgb(252, 238, 216);
+  padding: 20px;
   padding-bottom: 500px;
-}
-
-h2 {
-  background-color: blanchedalmond;
-  color: black;
+  justify-content: left;
 }

@@ -22,14 +22,14 @@ function MovieList() {
 
   return (
     <main>
-      <h2>My Movie Inventory</h2>
+      <h2 className='header'>My Movie Inventory</h2>
       <section className='movie-container'>
         {movies.map((movie) => {
           return (
             <Card
               variant='outlined'
               sx={{ minWidth: 275 }}
-              style={{ backgroundColor: 'blanchedalmond' }}
+              style={{ backgroundColor: 'darkslategrey' }}
               data-testid='movieItem'
               onClick={() => viewDetails(movie.id)}
               key={movie.id}
@@ -42,9 +42,9 @@ function MovieList() {
                   src={movie.poster}
                   alt={movie.title}
                 />
-                <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+                <Typography sx={{ fontSize: 14 }} color='white' gutterBottom>
                   <h3>{movie.title}</h3>
-                  <Button style={{ color: 'blanchedalmond', backgroundColor: 'darkslategrey' }} size='small'>
+                  <Button style={{ color: 'black', backgroundColor: 'blanchedalmond' }} size='small'>
                     Learn More
                   </Button>
                 </Typography>
